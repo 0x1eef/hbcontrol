@@ -8,7 +8,7 @@ in Go.
 
 #### Usage
 
-    usage: control [-hn] command file
+    usage: control [-hn] <command> <feature> <file>
 
     COMMANDS
         enable      Enable a feature

@@ -27,7 +27,7 @@ func main() {
 }
 
 func usage() {
-	warn("usage: control [-hn] command file\n")
+	warn("usage: control [-hn] <command> <featue> <file>\n")
 	warn("\nCOMMANDS\n")
 	warn("    enable\tEnable a feature\n")
 	warn("    disable\tDisable a feature\n")
