@@ -1,0 +1,107 @@
+.Dd
+.Dt CONTROL 8
+.Os
+.Sh NAME
+.Nm control
+.Nd HardenedBSD's feature state control utility (Go implementation)
+.Sh SYNOPSIS
+.Nm control
+.Op Fl n Ar namespace
+.Op Fl h
+.Ar command
+.Ar feature
+.Ar file
+.Nm control
+.Op Fl n Ar namespace
+.Op Fl h
+.Ar command
+.Ar file
+.Sh DESCRIPTION
+The
+.Nm control
+utility is an alternative implementation of
+.Xr hbsdcontrol 8
+but written in Go. It provides an intuitive interface to enable, disable,
+restore, and query security features managed by the HardenedBSD kernel.
+Each feature can be managed on a per-file basis, or globally by setting
+the system default setting via
+.Xr sysctl 8 .
+.Pp
+A file will generally have one of three states for any given feature:
+.Vt enabled ,
+.Vt disabled ,
+or
+.Vt sysdef .
+The
+.Vt sysdef
+state implies that a file is configured to use the system default
+setting, and an enabled or disabled state overrides the system default
+setting for a given file.
+.Pp
+The utility uses extended attributes to store feature state for each
+file, and by default the attributes are stored using the system namespace
+but the namespace can be configured through the
+.Fl n
+option.
+.Pp
+The following commands are available:
+.Bl -tag -width "restore feature file"
+.It Cm enable
+.Ar feature
+.Ar file
+Enable a specific feature for a given file.
+.It Cm disable
+.Ar feature
+.Ar file
+Disable a specific feature for a given file.
+.It Cm restore
+.Ar feature
+.Ar file
+Restore a feature for a given file to its system default state.
+.It Cm status
+.Ar file
+Query the states of all available features for a given file.
+.El
+.Pp
+The following options are available:
+.Bl -tag -width "-n namespace"
+.It Fl n
+.Ar namespace
+Set extended attribute namespace (either 'user' or 'system').
+.It Fl h
+Show general help.
+.El
+.Sh EXIT STATUS
+Exit status is 0 on success, or 1 if the command fails.
+.Sh EXAMPLES
+Enable the mprotect feature on /bin/ls:
+.Bd -literal
+# control enable mprotect /bin/ls
+.Ed
+.Pp
+Disable the pageexec feature on /bin/ls:
+.Bd -literal
+# control disable pageexec /bin/ls
+.Ed
+.Pp
+Restore the segvguard feature on /bin/ls to its system default:
+.Bd -literal
+# control restore segvguard /bin/ls
+.Ed
+.Pp
+Query the status of all features on /bin/ls:
+.Bd -literal
+# control status /bin/ls
+.Ed
+.Sh SEE ALSO
+.Xr libhbsdcontrol 3 ,
+.Xr security 7 ,
+.Xr sysctl 8
+.Sh HISTORY
+The
+.Nm control
+utility first appeared as part of the majortom project.
+.Sh AUTHORS
+The
+.Nm control
+utility and this manual page were written by 0x1eef.
