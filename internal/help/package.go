@@ -11,7 +11,7 @@ const width = 25
 const columns = 3
 
 func PrintHeader() {
-	warnln("usage: control [-hn] <command> [feature] <file>")
+	warnln("usage: control [-hnv] <command> [feature] <file>")
 	warnln("")
 }
 
@@ -28,6 +28,7 @@ func PrintOptions() {
 	warnln("OPTIONS")
 	warnln("    -h          Show help")
 	warnln("    -n          Set the namespace (either 'user' or 'system')")
+	warnln("    -v          Print current version")
 	warnln("")
 }
 

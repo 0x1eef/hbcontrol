@@ -14,24 +14,22 @@ The primary motivation behind this project was to have a testbed
 for the [majortom](https://github.com/0x1eef/majortom#readme) library,
 which provides Go bindings for libhbsdcontrol. But it is also a place
 to experiment with a different command-line interface that is focused
-on simplicity and user experience without being too concerned about
-backwards compatibility.
+on simplicity and user experience without being concerned about backwards
+compatibility.
 
 ## Examples
 
 #### Usage
 
-    usage: control [-hn] <command> [feature] <file>
+    usage: control [-hnv] <command> [feature] <file>
 
     COMMANDS
         enable      Enable a feature
         disable     Disable a feature
-        restore     Restore a feature to the system default
-        query       Query feature states
 
-    OPTIONS
         -h          Show help
         -n          Set the namespace (either 'user' or 'system')
+        -v          Print current version
 
     EXAMPLES
         control enable mprotect /bin/ls
