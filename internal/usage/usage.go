@@ -11,41 +11,41 @@ const width = 25
 const columns = 3
 
 func PrintHeader() {
-	warn("usage: control [-hn] <command> <feature> <file>")
-	warn("")
+	warnlnf("usage: control [-hn] <command> <feature> <file>")
+	warnlnf("")
 }
 
 func PrintCommands() {
-	warn("COMMANDS")
-	warn("    enable      Enable a feature")
-	warn("    disable     Disable a feature")
-	warn("    restore     Restore a feature to the system default")
-	warn("")
+	warnlnf("COMMANDS")
+	warnlnf("    enable      Enable a feature")
+	warnlnf("    disable     Disable a feature")
+	warnlnf("    restore     Restore a feature to the system default")
+	warnlnf("")
 }
 
 func PrintOptions() {
-	warn("OPTIONS")
-	warn("    -h          Show help")
-	warn("    -n          Set the namespace (either 'user' or 'system')")
-	warn("")
+	warnlnf("OPTIONS")
+	warnlnf("    -h          Show help")
+	warnlnf("    -n          Set the namespace (either 'user' or 'system')")
+	warnlnf("")
 }
 
 func PrintExamples() {
-	warn("EXAMPLES")
-	warn("    control enable mprotect /usr/bin/ls")
-	warn("    control disable pageexec /usr/bin/ls")
-	warn("    control restore segvguard /usr/bin/ls")
-	warn("")
+	warnlnf("EXAMPLES")
+	warnlnf("    control enable mprotect /usr/bin/ls")
+	warnlnf("    control disable pageexec /usr/bin/ls")
+	warnlnf("    control restore segvguard /usr/bin/ls")
+	warnlnf("")
 }
 
 func PrintFeatures(ns string) {
-	warn("FEATURES")
+	warnlnf("FEATURES")
 	ctx := control.New(control.Namespace(ns))
 	if names, err := ctx.FeatureNames(); err != nil {
-		warn("There was an unexpected error")
+		warnlnf("There was an unexpected error")
 	} else {
 		for i, name := range names {
-			fmt.Printf("%-*s", width, name)
+			warnf("%-*s", width, name)
 			if (i+1)%columns == 0 || i == len(names)-1 {
 				fmt.Println()
 			}
@@ -53,6 +53,10 @@ func PrintFeatures(ns string) {
 	}
 }
 
-func warn(msg string) {
-	fmt.Fprintln(os.Stderr, msg)
+func warnf(msg string, args ...any) {
+	fmt.Fprintf(os.Stderr, msg, args...)
+}
+
+func warnlnf(msg string, args ...any) {
+	warnf(msg + "\n", args...)
 }
