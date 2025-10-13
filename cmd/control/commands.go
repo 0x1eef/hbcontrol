@@ -59,7 +59,6 @@ func query(ns, path string) {
 	}
 }
 
-
 func printf(msg string, args ...any) {
 	fmt.Printf(fmt.Sprintf("control: %s", msg), args...)
 }
