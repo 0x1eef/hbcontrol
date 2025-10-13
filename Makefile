@@ -11,7 +11,7 @@ build:
 	go build -o bin/control ./cmd/control
 
 release:
-	go build -ldflags="-s -w -buildvcs=false" -o bin/control ./cmd/control
+	go build -buildvcs=false -ldflags="-s -w" -o bin/control ./cmd/control
 
 install: release
 	install -d $(BINDIR)
