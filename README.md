@@ -26,7 +26,10 @@ compatibility.
     COMMANDS
         enable      Enable a feature
         disable     Disable a feature
+        restore     Restore a feature to the system default
+        query       Query feature states
 
+    OPTIONS
         -h          Show help
         -n          Set the namespace (either 'user' or 'system')
         -v          Print current version
