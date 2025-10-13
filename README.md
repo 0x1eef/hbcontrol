@@ -24,6 +24,11 @@ in Go.
         control disable pageexec /usr/bin/ls
         control restore segvguard /usr/bin/ls
 
+    FEATURES
+    shlibrandom                     segvguard                       prohibit_ptrace_capsicum
+    pageexec                        mprotect                        insecure_kmod
+    harden_shm                      disallow_map32bit               aslr
+
 ## Sources
 
 * [github.com/@0x1eef](https://github.com/0x1eef/control#readme)

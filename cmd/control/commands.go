@@ -1,8 +1,8 @@
 package main
 
 import (
-	"log"
 	"github.com/0x1eef/majortom/control"
+	"log"
 )
 
 func enable(ns, feature, path string) {
