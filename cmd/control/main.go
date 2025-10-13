@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"os"
 
 	"github.com/0x1eef/control/internal/help"
@@ -9,23 +10,29 @@ import (
 
 type flags struct {
 	help      *bool
+	version   *bool
 	namespace *string
 }
+
+const VERSION = "0.1.0"
 
 var args []string
 var options flags
 
 func main() {
-	if *options.help || len(args) == 0 {
-		showHelp()
-		os.Exit(1)
+	if *options.help {
+		showHelp(0)
+	} else if *options.version {
+		fmt.Printf("v%s\n", VERSION)
+	} else if len(args) == 0 {
+		showHelp(0)
 	} else if len(args) == 2 {
 		cmd, path := args[0], args[1]
 		switch cmd {
 		case "query":
 			query(*options.namespace, path)
 		default:
-			showHelp()
+			showHelp(1)
 		}
 	} else if len(args) == 3 {
 		cmd, feature, path := args[0], args[1], args[2]
@@ -37,22 +44,25 @@ func main() {
 		case "restore":
 			restore(*options.namespace, feature, path)
 		default:
-			showHelp()
-			os.Exit(1)
+			showHelp(1)
 		}
+	} else {
+		showHelp(1)
 	}
 }
 
-func showHelp() {
+func showHelp(code int) {
 	help.PrintHeader()
 	help.PrintCommands()
 	help.PrintOptions()
 	help.PrintExamples()
 	help.PrintFeatures(*options.namespace)
+	os.Exit(code)
 }
 
 func init() {
 	options.help = flag.Bool("h", false, "Show help")
+	options.version = flag.Bool("v", false, "Print the current version")
 	options.namespace = flag.String("n", "system", "Set namespace (either user or system)")
 	flag.Parse()
 	args = flag.Args()
