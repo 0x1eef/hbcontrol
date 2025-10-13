@@ -14,7 +14,7 @@ var namespace *string
 func main() {
 	if *help || len(args) == 0 {
 		showUsage(*namespace)
-		os.Exit(2)
+		os.Exit(1)
 	} else if len(args) == 2 {
 		cmd, path := args[0], args[1]
 		switch cmd {
@@ -34,7 +34,7 @@ func main() {
 			restore(*namespace, feature, path)
 		default:
 			showUsage(*namespace)
-			os.Exit(2)
+			os.Exit(1)
 		}
 	}
 }

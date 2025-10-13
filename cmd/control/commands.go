@@ -65,5 +65,5 @@ func printf(msg string, args ...any) {
 
 func fatalf(msg string, args ...any) {
 	fmt.Fprintf(os.Stderr, fmt.Sprintf("control: %s", msg), args...)
-	os.Exit(2)
+	os.Exit(1)
 }
