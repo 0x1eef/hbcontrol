@@ -39,17 +39,17 @@ func main() {
 	}
 }
 
-func init() {
-	help = flag.Bool("h", false, "Show help")
-	namespace = flag.String("n", "system", "Set namespace (either user or system)")
-	flag.Parse()
-	args = flag.Args()
-}
-
 func showHelp() {
 	usage.PrintHeader()
 	usage.PrintCommands()
 	usage.PrintOptions()
 	usage.PrintExamples()
 	usage.PrintFeatures(*namespace)
+}
+
+func init() {
+	help = flag.Bool("h", false, "Show help")
+	namespace = flag.String("n", "system", "Set namespace (either user or system)")
+	flag.Parse()
+	args = flag.Args()
 }
