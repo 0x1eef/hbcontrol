@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/0x1eef/majortom/control"
 	"os"
+
+	"github.com/0x1eef/majortom/control"
 )
 
 func enable(ns, feature, path string) {
