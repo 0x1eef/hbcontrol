@@ -11,38 +11,38 @@ const width = 25
 const columns = 3
 
 func PrintHeader() {
-	warnlnf("usage: control [-hn] <command> <feature> <file>")
-	warnlnf("")
+	warnln("usage: control [-hn] <command> <feature> <file>")
+	warnln("")
 }
 
 func PrintCommands() {
-	warnlnf("COMMANDS")
-	warnlnf("    enable      Enable a feature")
-	warnlnf("    disable     Disable a feature")
-	warnlnf("    restore     Restore a feature to the system default")
-	warnlnf("")
+	warnln("COMMANDS")
+	warnln("    enable      Enable a feature")
+	warnln("    disable     Disable a feature")
+	warnln("    restore     Restore a feature to the system default")
+	warnln("")
 }
 
 func PrintOptions() {
-	warnlnf("OPTIONS")
-	warnlnf("    -h          Show help")
-	warnlnf("    -n          Set the namespace (either 'user' or 'system')")
-	warnlnf("")
+	warnln("OPTIONS")
+	warnln("    -h          Show help")
+	warnln("    -n          Set the namespace (either 'user' or 'system')")
+	warnln("")
 }
 
 func PrintExamples() {
-	warnlnf("EXAMPLES")
-	warnlnf("    control enable mprotect /usr/bin/ls")
-	warnlnf("    control disable pageexec /usr/bin/ls")
-	warnlnf("    control restore segvguard /usr/bin/ls")
-	warnlnf("")
+	warnln("EXAMPLES")
+	warnln("    control enable mprotect /usr/bin/ls")
+	warnln("    control disable pageexec /usr/bin/ls")
+	warnln("    control restore segvguard /usr/bin/ls")
+	warnln("")
 }
 
 func PrintFeatures(ns string) {
-	warnlnf("FEATURES")
+	warnln("FEATURES")
 	ctx := control.New(control.Namespace(ns))
 	if names, err := ctx.FeatureNames(); err != nil {
-		warnlnf("There was an unexpected error")
+		warnln("There was an unexpected error")
 	} else {
 		for i, name := range names {
 			warnf("%-*s", width, name)
@@ -57,6 +57,6 @@ func warnf(msg string, args ...any) {
 	fmt.Fprintf(os.Stderr, msg, args...)
 }
 
-func warnlnf(msg string, args ...any) {
+func warnln(msg string, args ...any) {
 	warnf(msg + "\n", args...)
 }
