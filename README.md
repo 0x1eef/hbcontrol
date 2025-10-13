@@ -8,26 +8,24 @@ in Go.
 
 #### Usage
 
-    usage: control [-hn] <command> <feature> <file>
+    usage: control [-hn] <command> [feature] <file>
 
     COMMANDS
-        enable      Enable a feature
-        disable     Disable a feature
-        restore     Restore a feature to the system default
 
     OPTIONS
-        -h  Show help
-        -n  Set the namespace (either user or system)
+        -h          Show help
+        -n          Set the namespace (either 'user' or 'system')
 
     EXAMPLES
-        control enable mprotect /usr/bin/ls
-        control disable pageexec /usr/bin/ls
-        control restore segvguard /usr/bin/ls
+        control enable mprotect /bin/ls
+        control disable pageexec /bin/ls
+        control restore segvguard /bin/ls
+        control status /bin/ls
 
     FEATURES
-    shlibrandom                     segvguard                       prohibit_ptrace_capsicum
-    pageexec                        mprotect                        insecure_kmod
-    harden_shm                      disallow_map32bit               aslr
+    shlibrandom              segvguard                prohibit_ptrace_capsicum
+    pageexec                 mprotect                 insecure_kmod
+    harden_shm               disallow_map32bit        aslr
 
 ## Sources
 
