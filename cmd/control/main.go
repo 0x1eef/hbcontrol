@@ -20,6 +20,9 @@ var args []string
 var options flags
 
 func main() {
+	flag.Parse()
+	args = flag.Args()
+
 	if *options.help {
 		showHelp(0)
 	} else if *options.version {
@@ -64,6 +67,4 @@ func init() {
 	options.help = flag.Bool("h", false, "Show help")
 	options.version = flag.Bool("v", false, "Print the current version")
 	options.namespace = flag.String("n", "system", "Set namespace (either user or system)")
-	flag.Parse()
-	args = flag.Args()
 }
