@@ -13,7 +13,7 @@ var namespace *string
 
 func main() {
 	if *help || len(args) == 0 {
-		showUsage(*namespace)
+		showHelp()
 		os.Exit(1)
 	} else if len(args) == 2 {
 		cmd, path := args[0], args[1]
@@ -21,7 +21,7 @@ func main() {
 		case "query":
 			query(*namespace, path)
 		default:
-			showUsage(*namespace)
+			showHelp()
 		}
 	} else if len(args) == 3 {
 		cmd, feature, path := args[0], args[1], args[2]
@@ -33,7 +33,7 @@ func main() {
 		case "restore":
 			restore(*namespace, feature, path)
 		default:
-			showUsage(*namespace)
+			showHelp()
 			os.Exit(1)
 		}
 	}
@@ -46,10 +46,10 @@ func init() {
 	args = flag.Args()
 }
 
-func showUsage(ns string) {
+func showHelp() {
 	usage.PrintHeader()
 	usage.PrintCommands()
 	usage.PrintOptions()
 	usage.PrintExamples()
-	usage.PrintFeatures(ns)
+	usage.PrintFeatures(*namespace)
 }
