@@ -11,6 +11,10 @@ in Go.
     usage: control [-hn] <command> [feature] <file>
 
     COMMANDS
+        enable      Enable a feature
+        disable     Disable a feature
+        restore     Restore a feature to the system default
+        status      Query feature states
 
     OPTIONS
         -h          Show help
