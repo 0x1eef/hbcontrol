@@ -33,7 +33,7 @@ func restore(ns, feature, path string) {
 	}
 }
 
-func status(ns, path string) {
+func query(ns, path string) {
 	ctx := control.New(control.Namespace(ns))
 	if names, err := ctx.FeatureNames(); err != nil {
 		fatalf("%s\n", err)

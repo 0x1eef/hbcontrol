@@ -20,7 +20,7 @@ func PrintCommands() {
 	warnln("    enable      Enable a feature")
 	warnln("    disable     Disable a feature")
 	warnln("    restore     Restore a feature to the system default")
-	warnln("    status      Query feature states")
+	warnln("    query       Query feature states")
 	warnln("")
 }
 
@@ -36,7 +36,7 @@ func PrintExamples() {
 	warnln("    control enable mprotect /bin/ls")
 	warnln("    control disable pageexec /bin/ls")
 	warnln("    control restore segvguard /bin/ls")
-	warnln("    control status /bin/ls")
+	warnln("    control query /bin/ls")
 	warnln("")
 }
 

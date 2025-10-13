@@ -18,8 +18,8 @@ func main() {
 	} else if len(args) == 2 {
 		cmd, path := args[0], args[1]
 		switch cmd {
-		case "status":
-			status(*namespace, path)
+		case "query":
+			query(*namespace, path)
 		default:
 			showUsage(*namespace)
 		}

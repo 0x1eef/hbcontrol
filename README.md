@@ -14,7 +14,7 @@ in Go.
         enable      Enable a feature
         disable     Disable a feature
         restore     Restore a feature to the system default
-        status      Query feature states
+        query       Query feature states
 
     OPTIONS
         -h          Show help
@@ -24,7 +24,7 @@ in Go.
         control enable mprotect /bin/ls
         control disable pageexec /bin/ls
         control restore segvguard /bin/ls
-        control status /bin/ls
+        control query /bin/ls
 
     FEATURES
     shlibrandom              segvguard                prohibit_ptrace_capsicum
