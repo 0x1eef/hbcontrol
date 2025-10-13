@@ -12,10 +12,18 @@ var help *bool
 var namespace *string
 
 func main() {
-	if *help || len(args) == 0 || len(args) > 3 {
+	if *help || len(args) == 0 {
 		showUsage(*namespace)
 		os.Exit(2)
-	} else {
+	} else if len(args) == 2 {
+		cmd, path := args[0], args[1]
+		switch cmd {
+		case "status":
+			status(*namespace, path)
+		default:
+			showUsage(*namespace)
+		}
+	} else if len(args) == 3 {
 		cmd, feature, path := args[0], args[1], args[2]
 		switch cmd {
 		case "enable":

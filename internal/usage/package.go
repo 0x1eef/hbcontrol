@@ -11,7 +11,7 @@ const width = 25
 const columns = 3
 
 func PrintHeader() {
-	warnln("usage: control [-hn] <command> <feature> <file>")
+	warnln("usage: control [-hn] <command> [feature] <file>")
 	warnln("")
 }
 
@@ -20,6 +20,7 @@ func PrintCommands() {
 	warnln("    enable      Enable a feature")
 	warnln("    disable     Disable a feature")
 	warnln("    restore     Restore a feature to the system default")
+	warnln("    status      Query feature states")
 	warnln("")
 }
 
@@ -32,9 +33,10 @@ func PrintOptions() {
 
 func PrintExamples() {
 	warnln("EXAMPLES")
-	warnln("    control enable mprotect /usr/bin/ls")
-	warnln("    control disable pageexec /usr/bin/ls")
-	warnln("    control restore segvguard /usr/bin/ls")
+	warnln("    control enable mprotect /bin/ls")
+	warnln("    control disable pageexec /bin/ls")
+	warnln("    control restore segvguard /bin/ls")
+	warnln("    control status /bin/ls")
 	warnln("")
 }
 
@@ -58,5 +60,5 @@ func warnf(msg string, args ...any) {
 }
 
 func warnln(msg string, args ...any) {
-	warnf(msg + "\n", args...)
+	warnf(msg+"\n", args...)
 }
