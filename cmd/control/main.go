@@ -14,7 +14,7 @@ type flags struct {
 	namespace *string
 }
 
-const VERSION = "0.1.0"
+const VERSION = "0.1.1"
 
 var args []string
 var options flags
