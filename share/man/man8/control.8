@@ -8,12 +8,14 @@
 .Nm control
 .Op Fl n Ar namespace
 .Op Fl h
+.Op Fl v
 .Ar command
 .Ar feature
 .Ar file
 .Nm control
 .Op Fl n Ar namespace
 .Op Fl h
+.Op Fl v
 .Ar command
 .Ar file
 .Sh DESCRIPTION
@@ -46,30 +48,24 @@ option.
 .Pp
 The following commands are available:
 .Bl -tag -width "restore feature file"
-.It Cm enable
-.Ar feature
-.Ar file
+.It Cm enable Ar feature Ar file
 Enable a specific feature for a given file.
-.It Cm disable
-.Ar feature
-.Ar file
+.It Cm disable Ar feature Ar file
 Disable a specific feature for a given file.
-.It Cm restore
-.Ar feature
-.Ar file
+.It Cm restore Ar feature Ar file
 Restore a feature for a given file to its system default state.
-.It Cm status
-.Ar file
+.It Cm status Ar file
 Query the states of all available features for a given file.
 .El
 .Pp
 The following options are available:
 .Bl -tag -width "-n namespace"
-.It Fl n
-.Ar namespace
+.It Fl n Ar namespace
 Set extended attribute namespace (either 'user' or 'system').
 .It Fl h
 Show general help.
+.It Fl v
+Show the current version.
 .El
 .Sh EXIT STATUS
 Exit status is 0 on success, or 1 if the command fails.
@@ -92,6 +88,11 @@ Restore the segvguard feature on /bin/ls to its system default:
 Query the status of all features on /bin/ls:
 .Bd -literal
 # control status /bin/ls
+.Ed
+.Pp
+Show the current version:
+.Bd -literal
+# control -v
 .Ed
 .Sh SEE ALSO
 .Xr libhbsdcontrol 3 ,
