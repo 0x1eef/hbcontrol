@@ -8,13 +8,15 @@ import (
 	"github.com/0x1eef/control/internal/help"
 )
 
+const (
+	Version = "0.2.0"
+)
+
 type flags struct {
 	help      *bool
 	version   *bool
 	namespace *string
 }
-
-const VERSION = "0.1.2"
 
 var args []string
 var options flags
@@ -26,7 +28,7 @@ func main() {
 	if *options.help {
 		showHelp(0)
 	} else if *options.version {
-		fmt.Printf("v%s\n", VERSION)
+		fmt.Printf("v%s\n", Version)
 	} else if len(args) == 0 {
 		showHelp(0)
 	} else if len(args) == 2 {
