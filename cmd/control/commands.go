@@ -8,51 +8,55 @@ import (
 )
 
 func enable(ns, feature, path string) {
-	ctx := control.New(control.Namespace(ns))
-	if err := ctx.Enable(feature, path); err != nil {
+	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
 		println("ok")
+		ctx.Free()
 	}
 }
 
 func disable(ns, feature, path string) {
-	ctx := control.New(control.Namespace(ns))
-	if err := ctx.Disable(feature, path); err != nil {
+	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
 		println("ok")
+		ctx.Free()
 	}
 }
 
 func restore(ns, feature, path string) {
-	ctx := control.New(control.Namespace(ns))
-	if err := ctx.Sysdef(feature, path); err != nil {
+	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
 		println("ok")
+		ctx.Free()
 	}
 }
 
 func query(ns, path string) {
-	ctx := control.New(control.Namespace(ns))
-	if names, err := ctx.FeatureNames(); err != nil {
+	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
-		for i, name := range names {
-			if status, err := ctx.Status(name, path); err != nil {
-				fatalln("%s", err)
-			} else {
-				if i == 0 {
-					println("%-25s %s", "Feature", "Status")
-				}
-				switch status {
-				case "enabled":
-					println("%-25s enabled", name)
-				case "disabled":
-					println("%-25s disabled", name)
-				case "sysdef":
-					println("%-25s system default", name)
+		if names, err := ctx.FeatureNames(); err != nil {
+			fatalln("%s", err)
+		} else {
+			defer ctx.Free()
+			for i, name := range names {
+				if status, err := ctx.Status(name, path); err != nil {
+					fatalln("%s", err)
+				} else {
+					if i == 0 {
+						println("%-25s %s", "Feature", "Status")
+					}
+					switch status {
+					case "enabled":
+						println("%-25s enabled", name)
+					case "disabled":
+						println("%-25s disabled", name)
+					case "sysdef":
+						println("%-25s system default", name)
+					}
 				}
 			}
 		}

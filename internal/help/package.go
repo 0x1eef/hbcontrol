@@ -43,14 +43,18 @@ func PrintExamples() {
 
 func PrintFeatures(ns string) {
 	warnln("FEATURES")
-	ctx := control.New(control.Namespace(ns))
-	if names, err := ctx.FeatureNames(); err != nil {
-		warnln("There was an unexpected error")
+	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
+		warnln("%s", err)
 	} else {
-		for i, name := range names {
-			warnf("%-*s", width, name)
-			if (i+1)%columns == 0 || i == len(names)-1 {
-				fmt.Println()
+		defer ctx.Free()
+		if names, err := ctx.FeatureNames(); err != nil {
+			warnln("There was an unexpected error")
+		} else {
+			for i, name := range names {
+				warnf("%-*s", width, name)
+				if (i+1)%columns == 0 || i == len(names)-1 {
+					fmt.Println()
+				}
 			}
 		}
 	}
