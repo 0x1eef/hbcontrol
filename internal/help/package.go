@@ -7,8 +7,10 @@ import (
 	"github.com/0x1eef/majortom/control"
 )
 
-const width = 25
-const columns = 3
+const (
+	width   = 25
+	columns = 3
+)
 
 func PrintHeader() {
 	warnln("usage: control [-hnv] <command> [feature] <file>")
@@ -53,7 +55,7 @@ func PrintFeatures(ns string) {
 			for i, name := range names {
 				warnf("%-*s", width, name)
 				if (i+1)%columns == 0 || i == len(names)-1 {
-					fmt.Println()
+					warnln("")
 				}
 			}
 		}
