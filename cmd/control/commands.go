@@ -11,8 +11,8 @@ func enable(ns, feature, path string) {
 	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
+		defer ctx.Free()
 		println("ok")
-		ctx.Free()
 	}
 }
 
@@ -20,8 +20,8 @@ func disable(ns, feature, path string) {
 	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
+		defer ctx.Free()
 		println("ok")
-		ctx.Free()
 	}
 }
 
@@ -29,8 +29,8 @@ func restore(ns, feature, path string) {
 	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
+		defer ctx.Free()
 		println("ok")
-		ctx.Free()
 	}
 }
 
@@ -63,6 +63,14 @@ func query(ns, path string) {
 	}
 }
 
+func println(msg string, args ...any) {
+	printf(msg+"\n", args...)
+}
+
+func fatalln(msg string, args ...any) {
+	fatalf(msg+"\n", args...)
+}
+
 func printf(msg string, args ...any) {
 	fmt.Printf(fmt.Sprintf("control: %s", msg), args...)
 }
@@ -70,12 +78,4 @@ func printf(msg string, args ...any) {
 func fatalf(msg string, args ...any) {
 	fmt.Fprintf(os.Stderr, fmt.Sprintf("control: %s", msg), args...)
 	os.Exit(1)
-}
-
-func println(msg string, args ...any) {
-	printf(msg+"\n", args...)
-}
-
-func fatalln(msg string, args ...any) {
-	fatalf(msg+"\n", args...)
 }
