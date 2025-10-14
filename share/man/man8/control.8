@@ -54,8 +54,8 @@ Enable a feature.
 Disable a feature.
 .It Cm restore Ar feature Ar file
 Restore a feature to the system default.
-.It Cm status Ar file
-Show all feature states.
+.It Cm query Ar file
+Query all feature states.
 .El
 .Pp
 The following options are available:
@@ -87,7 +87,7 @@ Restore the segvguard feature on /bin/ls to its system default:
 .Pp
 Query the status of all features on /bin/ls:
 .Bd -literal
-# control status /bin/ls
+# control query /bin/ls
 .Ed
 .Pp
 Show the current version:
