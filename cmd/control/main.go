@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	Version = "0.2.1"
+	Version = "0.2.2"
 )
 
 type flags struct {
