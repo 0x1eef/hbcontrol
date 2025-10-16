@@ -4,3 +4,5 @@ github.com/0x1eef/majortom v0.1.0 h1:QE/3ewmVCDARCCYjigQjbfF8lf34HWz88qQEgHX7Q7o
 github.com/0x1eef/majortom v0.1.0/go.mod h1:mR/2IBiWNmQWxBukNy9F14fy6+V1cNG1D7FuiQ6BwaQ=
 github.com/0x1eef/majortom v0.1.1 h1:XFdYOgKV1N3NmFk0qo1tWeQ1UCtEj7IMP15IsXHm2Kc=
 github.com/0x1eef/majortom v0.1.1/go.mod h1:mR/2IBiWNmQWxBukNy9F14fy6+V1cNG1D7FuiQ6BwaQ=
+github.com/0x1eef/majortom v0.2.0 h1:4TpcMhCZa2GBXPjF+sfnu36Phx97mImEtkKvWxpdbH0=
+github.com/0x1eef/majortom v0.2.0/go.mod h1:mR/2IBiWNmQWxBukNy9F14fy6+V1cNG1D7FuiQ6BwaQ=
