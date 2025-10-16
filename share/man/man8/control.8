@@ -23,10 +23,10 @@ The
 .Nm control
 utility is an alternative implementation of
 .Xr hbsdcontrol 8
-but written in Go. It provides an intuitive interface to enable, disable,
-set to system default, and query security features managed by the HardenedBSD kernel.
-Each feature can be managed on a per-file basis, or globally by setting
-the system default setting via
+but written in Go. It provides an intuitive interface that can enable,
+disable, or restore the system default setting for a given feature and
+file. Each feature can be managed on a per-file basis, or globally by
+setting the system default setting via
 .Xr sysctl 8 .
 .Pp
 A file will generally have one of three states for any given feature:
