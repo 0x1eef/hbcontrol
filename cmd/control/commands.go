@@ -25,7 +25,7 @@ func disable(ns, feature, path string) {
 	}
 }
 
-func restore(ns, feature, path string) {
+func sysdef(ns, feature, path string) {
 	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {

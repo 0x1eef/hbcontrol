@@ -34,7 +34,7 @@ func main() {
 	} else if len(args) == 2 {
 		cmd, path := args[0], args[1]
 		switch cmd {
-		case "query":
+		case "query", "status":
 			query(*options.namespace, path)
 		default:
 			showHelp(1)
@@ -46,8 +46,8 @@ func main() {
 			enable(*options.namespace, feature, path)
 		case "disable":
 			disable(*options.namespace, feature, path)
-		case "restore":
-			restore(*options.namespace, feature, path)
+		case "sysdef":
+			sysdef(*options.namespace, feature, path)
 		default:
 			showHelp(1)
 		}

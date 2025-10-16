@@ -19,10 +19,10 @@ func PrintHeader() {
 
 func PrintCommands() {
 	warnln("COMMANDS")
-	warnln("    enable      Enable a feature")
-	warnln("    disable     Disable a feature")
-	warnln("    restore     Restore a feature to the system default")
-	warnln("    query       Query feature states")
+	warnln("    enable            Enable a feature")
+	warnln("    disable           Disable a feature")
+	warnln("    sysdef            Restore a feature to the system default")
+	warnln("    [query|status]    Query feature states")
 	warnln("")
 }
 
@@ -40,6 +40,7 @@ func PrintExamples() {
 	warnln("    control disable pageexec /bin/ls")
 	warnln("    control restore segvguard /bin/ls")
 	warnln("    control query /bin/ls")
+	warnln("    control status /bin/ls")
 	warnln("")
 }
 

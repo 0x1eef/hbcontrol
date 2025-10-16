@@ -24,10 +24,10 @@ compatibility.
     usage: control [-hnv] <command> [feature] <file>
 
     COMMANDS
-        enable      Enable a feature
-        disable     Disable a feature
-        restore     Restore a feature to the system default
-        query       Query feature states
+        enable           Enable a feature
+        disable          Disable a feature
+        sysdef           Restore a feature to the system default
+        [query|status]   Query feature states
 
     OPTIONS
         -h          Show help
@@ -39,6 +39,7 @@ compatibility.
         control disable pageexec /bin/ls
         control restore segvguard /bin/ls
         control query /bin/ls
+        control status /bin/ls
 
     FEATURES
     shlibrandom              segvguard                prohibit_ptrace_capsicum

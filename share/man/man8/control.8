@@ -24,7 +24,7 @@ The
 utility is an alternative implementation of
 .Xr hbsdcontrol 8
 but written in Go. It provides an intuitive interface to enable, disable,
-restore, and query security features managed by the HardenedBSD kernel.
+set to system default, and query security features managed by the HardenedBSD kernel.
 Each feature can be managed on a per-file basis, or globally by setting
 the system default setting via
 .Xr sysctl 8 .
@@ -52,9 +52,9 @@ The following commands are available:
 Enable a feature.
 .It Cm disable Ar feature Ar file
 Disable a feature.
-.It Cm restore Ar feature Ar file
+.It Cm sysdef Ar feature Ar file
 Restore a feature to the system default.
-.It Cm query Ar file
+.It Cm query Ar file , Cm status Ar file
 Query all feature states.
 .El
 .Pp
@@ -82,12 +82,17 @@ Disable the pageexec feature on /bin/ls:
 .Pp
 Restore the segvguard feature on /bin/ls to its system default:
 .Bd -literal
-# control restore segvguard /bin/ls
+# control sysdef segvguard /bin/ls
 .Ed
 .Pp
 Query the status of all features on /bin/ls:
 .Bd -literal
 # control query /bin/ls
+.Ed
+.Pp
+Query the status of all features on /bin/ls (alias):
+.Bd -literal
+# control status /bin/ls
 .Ed
 .Pp
 Show the current version:
