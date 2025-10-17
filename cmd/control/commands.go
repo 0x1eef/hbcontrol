@@ -1,9 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/0x1eef/majortom/control"
 )
 
@@ -63,21 +60,4 @@ func query(ns, path string) {
 			println("%-25s system default", name)
 		}
 	}
-}
-
-func println(msg string, args ...any) {
-	printf(msg+"\n", args...)
-}
-
-func fatalln(msg string, args ...any) {
-	fatalf(msg+"\n", args...)
-}
-
-func printf(msg string, args ...any) {
-	fmt.Printf(fmt.Sprintf("control: %s", msg), args...)
-}
-
-func fatalf(msg string, args ...any) {
-	fmt.Fprintf(os.Stderr, fmt.Sprintf("control: %s", msg), args...)
-	os.Exit(1)
 }
