@@ -36,12 +36,12 @@ func query(ns, path string) {
 	if err != nil {
 		fatalln("%s", err)
 	}
+	defer ctx.Free()
 
 	names, err := ctx.FeatureNames()
 	if err != nil {
 		fatalln("%s", err)
 	}
-	defer ctx.Free()
 
 	for i, name := range names {
 		status, err := ctx.Status(name, path)
