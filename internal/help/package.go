@@ -38,7 +38,7 @@ func PrintExamples() {
 	warnln("EXAMPLES")
 	warnln("    control enable mprotect /bin/ls")
 	warnln("    control disable pageexec /bin/ls")
-	warnln("    control restore segvguard /bin/ls")
+	warnln("    control sysdef segvguard /bin/ls")
 	warnln("    control query /bin/ls")
 	warnln("    control status /bin/ls")
 	warnln("")
