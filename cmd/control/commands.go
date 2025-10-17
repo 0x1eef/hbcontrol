@@ -35,30 +35,32 @@ func sysdef(ns, feature, path string) {
 }
 
 func query(ns, path string) {
-	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
+	ctx, err := control.NewContext(control.Namespace(ns))
+	if err != nil {
 		fatalln("%s", err)
-	} else {
-		if names, err := ctx.FeatureNames(); err != nil {
+	}
+
+	names, err := ctx.FeatureNames()
+	if err != nil {
+		fatalln("%s", err)
+	}
+	defer ctx.Free()
+
+	for i, name := range names {
+		status, err := ctx.Status(name, path)
+		if err != nil {
 			fatalln("%s", err)
-		} else {
-			defer ctx.Free()
-			for i, name := range names {
-				if status, err := ctx.Status(name, path); err != nil {
-					fatalln("%s", err)
-				} else {
-					if i == 0 {
-						println("%-25s %s", "Feature", "Status")
-					}
-					switch status {
-					case "enabled":
-						println("%-25s enabled", name)
-					case "disabled":
-						println("%-25s disabled", name)
-					case "sysdef":
-						println("%-25s system default", name)
-					}
-				}
-			}
+		}
+		if i == 0 {
+			println("%-25s %s", "Feature", "Status")
+		}
+		switch status {
+		case "enabled":
+			println("%-25s enabled", name)
+		case "disabled":
+			println("%-25s disabled", name)
+		case "sysdef":
+			println("%-25s system default", name)
 		}
 	}
 }
