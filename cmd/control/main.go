@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"os"
 
 	"github.com/0x1eef/control/internal/help"
@@ -28,7 +27,7 @@ func main() {
 	if *options.help {
 		showHelp(0)
 	} else if *options.version {
-		fmt.Printf("v%s\n", Version)
+		printf("v%s\n", Version)
 	} else if len(args) == 0 {
 		showHelp(0)
 	} else if len(args) == 2 {
