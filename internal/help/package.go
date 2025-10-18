@@ -21,7 +21,7 @@ func PrintCommands() {
 	warnln("COMMANDS")
 	warnln("    enable            Enable a feature")
 	warnln("    disable           Disable a feature")
-	warnln("    sysdef            Restore a feature to the system default")
+	warnln("    sysdef            Restore the system default")
 	warnln("    [query|status]    Query feature states")
 	warnln("")
 }

@@ -26,7 +26,7 @@ compatibility.
     COMMANDS
         enable           Enable a feature
         disable          Disable a feature
-        sysdef           Restore a feature to the system default
+        sysdef           Restore the system default
         [query|status]   Query feature states
 
     OPTIONS
