@@ -1,6 +1,8 @@
 package help
 
 import (
+	"os"
+
 	"github.com/0x1eef/majortom/control"
 )
 
