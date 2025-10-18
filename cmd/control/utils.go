@@ -21,4 +21,3 @@ func fatalf(msg string, args ...any) {
 func fatalln(msg string, args ...any) {
 	fatalf(msg+"\n", args...)
 }
-
