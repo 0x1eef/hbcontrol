@@ -1,10 +1,8 @@
 ## About
 
-The control(8) utility is implemented in Go, and it provides
-an alternative implementation of the official hbsdcontrol(8)
-utility that is implemented in C. The goal is to have an
-alternative that is capable of replacing hbsdcontrol(8)
-but with an inuitive interface that is easy to use.
+The control(8) utility is implemented in Go for the [HardenedBSD](https://git.hardenedbsd.org)
+operating system, and it provides an alternative implementation
+of the official hbsdcontrol(8) utility that is implemented in C.
 
 ## Motivation
 
@@ -13,9 +11,8 @@ but with an inuitive interface that is easy to use.
 The primary motivation behind this project was to have a testbed
 for the [majortom](https://github.com/0x1eef/majortom#readme) library,
 which provides Go bindings for libhbsdcontrol. But it is also a place
-to experiment with a different command-line interface that is focused
-on simplicity and user experience without being concerned about backwards
-compatibility.
+to experiment with a different command-line interface that requires
+less typing and is hopefully more inuitive to use.
 
 ## Examples
 
