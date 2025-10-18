@@ -37,7 +37,7 @@ compatibility.
     EXAMPLES
         control enable mprotect /bin/ls
         control disable pageexec /bin/ls
-        control restore segvguard /bin/ls
+        control sysdef segvguard /bin/ls
         control query /bin/ls
         control status /bin/ls
 
