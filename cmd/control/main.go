@@ -12,9 +12,9 @@ const (
 )
 
 type flags struct {
-	help      *bool
-	version   *bool
-	namespace *string
+	help      bool
+	version   bool
+	namespace string
 }
 
 var args []string
@@ -24,9 +24,9 @@ func main() {
 	flag.Parse()
 	args = flag.Args()
 
-	if *options.help {
+	if options.help {
 		showHelp(0)
-	} else if *options.version {
+	} else if options.version {
 		printf("v%s\n", Version)
 	} else if len(args) == 0 {
 		showHelp(0)
@@ -34,7 +34,7 @@ func main() {
 		cmd, path := args[0], args[1]
 		switch cmd {
 		case "query", "status":
-			query(*options.namespace, path)
+			query(options.namespace, path)
 		default:
 			showHelp(1)
 		}
@@ -42,11 +42,11 @@ func main() {
 		cmd, feature, path := args[0], args[1], args[2]
 		switch cmd {
 		case "enable":
-			enable(*options.namespace, feature, path)
+			enable(options.namespace, feature, path)
 		case "disable":
-			disable(*options.namespace, feature, path)
+			disable(options.namespace, feature, path)
 		case "sysdef":
-			sysdef(*options.namespace, feature, path)
+			sysdef(options.namespace, feature, path)
 		default:
 			showHelp(1)
 		}
@@ -60,12 +60,12 @@ func showHelp(code int) {
 	help.PrintCommands()
 	help.PrintOptions()
 	help.PrintExamples()
-	help.PrintFeatures(*options.namespace)
+	help.PrintFeatures(options.namespace)
 	os.Exit(code)
 }
 
 func init() {
-	options.help = flag.Bool("h", false, "Show help")
-	options.version = flag.Bool("v", false, "Print the current version")
-	options.namespace = flag.String("n", "system", "Set namespace (either user or system)")
+	flag.BoolVar(&options.help, "h", false, "Show help")
+	flag.BoolVar(&options.version, "v", false, "Print the current version")
+	flag.StringVar(&options.namespace, "n", "system", "Set namespace (either user or system)")
 }
