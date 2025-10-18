@@ -1,9 +1,6 @@
 package help
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/0x1eef/majortom/control"
 )
 
@@ -13,39 +10,39 @@ const (
 )
 
 func PrintHeader() {
-	warnln("usage: control [-hnv] <command> [feature] <file>")
-	warnln("")
+	println("usage: control [-hnv] <command> [feature] <file>")
+	println("")
 }
 
 func PrintCommands() {
-	warnln("COMMANDS")
-	warnln("    enable            Enable a feature")
-	warnln("    disable           Disable a feature")
-	warnln("    sysdef            Restore the system default")
-	warnln("    [query|status]    Query feature states")
-	warnln("")
+	println("COMMANDS")
+	println("    enable            Enable a feature")
+	println("    disable           Disable a feature")
+	println("    sysdef            Restore the system default")
+	println("    [query|status]    Query feature states")
+	println("")
 }
 
 func PrintOptions() {
-	warnln("OPTIONS")
-	warnln("    -h          Show help")
-	warnln("    -n          Set the namespace (either 'user' or 'system')")
-	warnln("    -v          Print current version")
-	warnln("")
+	println("OPTIONS")
+	println("    -h          Show help")
+	println("    -n          Set the namespace (either 'user' or 'system')")
+	println("    -v          Print current version")
+	println("")
 }
 
 func PrintExamples() {
-	warnln("EXAMPLES")
-	warnln("    control enable mprotect /bin/ls")
-	warnln("    control disable pageexec /bin/ls")
-	warnln("    control sysdef segvguard /bin/ls")
-	warnln("    control query /bin/ls")
-	warnln("    control status /bin/ls")
-	warnln("")
+	println("EXAMPLES")
+	println("    control enable mprotect /bin/ls")
+	println("    control disable pageexec /bin/ls")
+	println("    control sysdef segvguard /bin/ls")
+	println("    control query /bin/ls")
+	println("    control status /bin/ls")
+	println("")
 }
 
 func PrintFeatures(ns string) {
-	warnln("FEATURES")
+	println("FEATURES")
 	if ctx, err := control.NewContext(control.Namespace(ns)); err != nil {
 		warnln("%s", err)
 	} else {
@@ -54,19 +51,11 @@ func PrintFeatures(ns string) {
 			warnln("There was an unexpected error")
 		} else {
 			for i, name := range names {
-				warnf("%-*s", width, name)
+				printf("%-*s", width, name)
 				if (i+1)%columns == 0 || i == len(names)-1 {
-					warnln("")
+					println("")
 				}
 			}
 		}
 	}
-}
-
-func warnf(msg string, args ...any) {
-	fmt.Fprintf(os.Stderr, msg, args...)
-}
-
-func warnln(msg string, args ...any) {
-	warnf(msg+"\n", args...)
 }
