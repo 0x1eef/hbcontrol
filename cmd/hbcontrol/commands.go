@@ -9,6 +9,9 @@ func enable(ns, feature, path string) {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
+		if err := ctx.Enable(feature, path); err != nil {
+			fatalln("%s", err)
+		}
 		println("ok")
 	}
 }
@@ -18,6 +21,9 @@ func disable(ns, feature, path string) {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
+		if err := ctx.Disable(feature, path); err != nil {
+			fatalln("%s", err)
+		}
 		println("ok")
 	}
 }
@@ -27,6 +33,9 @@ func sysdef(ns, feature, path string) {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
+		if err := ctx.Sysdef(feature, path); err != nil {
+			fatalln("%s", err)
+		}
 		println("ok")
 	}
 }

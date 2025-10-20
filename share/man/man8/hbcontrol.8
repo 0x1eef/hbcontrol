@@ -1,18 +1,18 @@
 .Dd
-.Dt CONTROL 8
+.Dt HBCONTROL 8
 .Os
 .Sh NAME
-.Nm control
+.Nm hbcontrol
 .Nd HardenedBSD's feature state control utility (Go implementation)
 .Sh SYNOPSIS
-.Nm control
+.Nm hbcontrol
 .Op Fl n Ar namespace
 .Op Fl h
 .Op Fl v
 .Ar command
 .Ar feature
 .Ar file
-.Nm control
+.Nm hbcontrol
 .Op Fl n Ar namespace
 .Op Fl h
 .Op Fl v
@@ -20,7 +20,7 @@
 .Ar file
 .Sh DESCRIPTION
 The
-.Nm control
+.Nm hbcontrol
 utility is an alternative implementation of
 .Xr hbsdcontrol 8
 but written in Go. It provides an intuitive interface that can control
@@ -73,32 +73,32 @@ Exit status is 0 on success, or 1 if the command fails.
 .Sh EXAMPLES
 Enable the mprotect feature on /bin/ls:
 .Bd -literal
-# control enable mprotect /bin/ls
+# hbcontrol enable mprotect /bin/ls
 .Ed
 .Pp
 Disable the pageexec feature on /bin/ls:
 .Bd -literal
-# control disable pageexec /bin/ls
+# hbcontrol disable pageexec /bin/ls
 .Ed
 .Pp
 Restore the segvguard feature on /bin/ls to its system default:
 .Bd -literal
-# control sysdef segvguard /bin/ls
+# hbcontrol sysdef segvguard /bin/ls
 .Ed
 .Pp
 Query the status of all features on /bin/ls:
 .Bd -literal
-# control query /bin/ls
+# hbcontrol query /bin/ls
 .Ed
 .Pp
 Query the status of all features on /bin/ls (alias):
 .Bd -literal
-# control status /bin/ls
+# hbcontrol status /bin/ls
 .Ed
 .Pp
 Show the current version:
 .Bd -literal
-# control -v
+# hbcontrol -v
 .Ed
 .Sh SEE ALSO
 .Xr libhbsdcontrol 3 ,
@@ -106,9 +106,9 @@ Show the current version:
 .Xr sysctl 8
 .Sh HISTORY
 The
-.Nm control
+.Nm hbcontrol
 utility first appeared as part of the majortom project.
 .Sh AUTHORS
 The
-.Nm control
+.Nm hbcontrol
 utility and this manual page were written by 0x1eef.

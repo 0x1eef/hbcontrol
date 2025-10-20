@@ -1,6 +1,6 @@
 ## About
 
-The control(8) utility is implemented in Go for the [HardenedBSD](https://git.hardenedbsd.org)
+The hbcontrol(8) utility is implemented in Go for the [HardenedBSD](https://git.hardenedbsd.org)
 operating system, and it provides an alternative implementation
 of the official hbsdcontrol(8) utility that is implemented in C.
 
@@ -18,7 +18,7 @@ less typing and is hopefully more inuitive to use.
 
 #### Usage
 
-    usage: control [-hnv] <command> [feature] <file>
+    usage: hbcontrol [-hnv] <command> [feature] <file>
 
     COMMANDS
         enable           Enable a feature
@@ -32,11 +32,11 @@ less typing and is hopefully more inuitive to use.
         -v          Print current version
 
     EXAMPLES
-        control enable mprotect /bin/ls
-        control disable pageexec /bin/ls
-        control sysdef segvguard /bin/ls
-        control query /bin/ls
-        control status /bin/ls
+        hbcontrol enable mprotect /bin/ls
+        hbcontrol disable pageexec /bin/ls
+        hbcontrol sysdef segvguard /bin/ls
+        hbcontrol query /bin/ls
+        hbcontrol status /bin/ls
 
     FEATURES
     shlibrandom              segvguard                prohibit_ptrace_capsicum
@@ -45,9 +45,9 @@ less typing and is hopefully more inuitive to use.
 
 ## Sources
 
-* [github.com/@0x1eef](https://github.com/0x1eef/control#readme)
-* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/control#about)
-* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/controlm#about)
+* [github.com/@0x1eef](https://github.com/0x1eef/hbcontrol#readme)
+* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/hbcontrol#about)
+* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/hbcontrolm#about)
 
 ## License
 

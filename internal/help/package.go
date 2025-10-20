@@ -12,7 +12,7 @@ const (
 )
 
 func PrintHeader() {
-	println("usage: control [-hnv] <command> [feature] <file>")
+	println("usage: hbcontrol [-hnv] <command> [feature] <file>")
 	println("")
 }
 
@@ -35,11 +35,11 @@ func PrintOptions() {
 
 func PrintExamples() {
 	println("EXAMPLES")
-	println("    control enable mprotect /bin/ls")
-	println("    control disable pageexec /bin/ls")
-	println("    control sysdef segvguard /bin/ls")
-	println("    control query /bin/ls")
-	println("    control status /bin/ls")
+	println("    hbcontrol enable mprotect /bin/ls")
+	println("    hbcontrol disable pageexec /bin/ls")
+	println("    hbcontrol sysdef segvguard /bin/ls")
+	println("    hbcontrol query /bin/ls")
+	println("    hbcontrol status /bin/ls")
 	println("")
 }
 
