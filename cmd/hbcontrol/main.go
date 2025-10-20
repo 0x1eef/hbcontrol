@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	Version = "0.3.5"
+	Version = "1.0.0"
 )
 
 type flags struct {
