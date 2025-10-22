@@ -4,9 +4,9 @@ The hbcontrol(8) utility is implemented in Go for the [HardenedBSD](https://git.
 operating system, and it provides an alternative implementation
 of the official hbsdcontrol(8) utility that is implemented in C.
 
-## Motivation
+## Context
 
-#### Why?
+#### Motivation
 
 The primary motivation behind this project was to have a testbed
 for the [majortom](https://github.com/0x1eef/majortom#readme) library,
