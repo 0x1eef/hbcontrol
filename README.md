@@ -18,7 +18,7 @@ less typing and is hopefully more inuitive to use.
 
 #### Usage
 
-    usage: hbcontrol [-hnv] <command> [feature] <file>
+    usage: hbcontrol [-hHnv] <command> [feature] <file>
 
     COMMANDS
         enable           Enable a feature
