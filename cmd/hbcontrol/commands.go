@@ -59,12 +59,10 @@ func query(ns, path string) {
 	ctx, err := control.NewContext(control.Namespace(ns))
 	if err != nil {
 		fatalln("%s", err)
-	}
-	defer ctx.Free()
-
-	if !isRegularFile(path) {
+	} else if !isRegularFile(path) {
 		fatalln("%s", errIrregularFile)
 	}
+	defer ctx.Free()
 
 	names, err := ctx.FeatureNames()
 	if err != nil {
