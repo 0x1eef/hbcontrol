@@ -12,7 +12,7 @@ const (
 )
 
 func PrintHeader() {
-	println("usage: hbcontrol [-hnv] <command> [feature] <file>")
+	println("usage: hbcontrol [-hHnv] <command> [feature] <file>")
 	println("")
 }
 
