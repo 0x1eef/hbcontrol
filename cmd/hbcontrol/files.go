@@ -15,12 +15,12 @@ func isRegularFile(path string) bool {
 }
 
 func follow(path string) string {
-	const max = 20
 	if !options.followSymlinks {
 		return path
 	} else if isRegularFile(path) {
 		return path
 	} else {
+		const max = 20
 		p, err := os.Readlink(path)
 		for i := 0; !isRegularFile(p); i++ {
 			p, err = os.Readlink(p)
