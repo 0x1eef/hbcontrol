@@ -6,7 +6,7 @@ import (
 )
 
 func printf(msg string, args ...any) {
-	fmt.Printf(fmt.Sprintf("control: %s", msg), args...)
+	fmt.Printf(fmt.Sprintf("hbcontrol: %s", msg), args...)
 }
 
 func println(msg string, args ...any) {
@@ -14,7 +14,7 @@ func println(msg string, args ...any) {
 }
 
 func fatalf(msg string, args ...any) {
-	fmt.Fprintf(os.Stderr, fmt.Sprintf("control: %s", msg), args...)
+	fmt.Fprintf(os.Stderr, fmt.Sprintf("hbcontrol: %s", msg), args...)
 	os.Exit(1)
 }
 
