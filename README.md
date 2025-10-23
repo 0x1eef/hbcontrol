@@ -28,6 +28,7 @@ less typing and is hopefully more inuitive to use.
 
     OPTIONS
         -h          Show help
+        -H          Follow symlinks
         -n          Set the namespace (either 'user' or 'system')
         -v          Print current version
 

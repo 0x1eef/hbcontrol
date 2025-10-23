@@ -28,6 +28,7 @@ func PrintCommands() {
 func PrintOptions() {
 	println("OPTIONS")
 	println("    -h          Show help")
+	println("    -H          Follow symlinks")
 	println("    -n          Set the namespace (either 'user' or 'system')")
 	println("    -v          Print current version")
 	println("")

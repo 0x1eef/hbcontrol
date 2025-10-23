@@ -1,7 +1,13 @@
 package main
 
 import (
+	"errors"
+
 	"github.com/0x1eef/majortom/control"
+)
+
+var (
+	errIrregularFile = errors.New("not a regular file")
 )
 
 func enable(ns, feature, path string) {
@@ -9,6 +15,9 @@ func enable(ns, feature, path string) {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
+		if !isRegularFile(path) {
+			fatalln("%s", errIrregularFile)
+		}
 		if err := ctx.Enable(feature, path); err != nil {
 			fatalln("%s", err)
 		}
@@ -21,6 +30,9 @@ func disable(ns, feature, path string) {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
+		if !isRegularFile(path) {
+			fatalln("%s", errIrregularFile)
+		}
 		if err := ctx.Disable(feature, path); err != nil {
 			fatalln("%s", err)
 		}
@@ -33,6 +45,9 @@ func sysdef(ns, feature, path string) {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
+		if !isRegularFile(path) {
+			fatalln("%s", errIrregularFile)
+		}
 		if err := ctx.Sysdef(feature, path); err != nil {
 			fatalln("%s", err)
 		}
@@ -46,6 +61,10 @@ func query(ns, path string) {
 		fatalln("%s", err)
 	}
 	defer ctx.Free()
+
+	if !isRegularFile(path) {
+		fatalln("%s", errIrregularFile)
+	}
 
 	names, err := ctx.FeatureNames()
 	if err != nil {

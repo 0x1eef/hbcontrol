@@ -4,7 +4,7 @@ import (
 	"flag"
 	"os"
 
-	"github.com/0x1eef/control/internal/help"
+	"github.com/0x1eef/hbcontrol/internal/help"
 )
 
 const (
@@ -12,18 +12,17 @@ const (
 )
 
 type flags struct {
-	help      bool
-	version   bool
-	namespace string
+	help           bool
+	version        bool
+	followSymlinks bool
+	namespace      string
 }
 
 var args []string
 var options flags
 
 func main() {
-	flag.Parse()
 	args = flag.Args()
-
 	if options.help {
 		showHelp(0)
 	} else if options.version {
@@ -34,7 +33,7 @@ func main() {
 		cmd, path := args[0], args[1]
 		switch cmd {
 		case "query", "status":
-			query(options.namespace, path)
+			query(options.namespace, follow(path))
 		default:
 			showHelp(1)
 		}
@@ -42,11 +41,11 @@ func main() {
 		cmd, feature, path := args[0], args[1], args[2]
 		switch cmd {
 		case "enable":
-			enable(options.namespace, feature, path)
+			enable(options.namespace, feature, follow(path))
 		case "disable":
-			disable(options.namespace, feature, path)
+			disable(options.namespace, feature, follow(path))
 		case "sysdef":
-			sysdef(options.namespace, feature, path)
+			sysdef(options.namespace, feature, follow(path))
 		default:
 			showHelp(1)
 		}
@@ -67,5 +66,7 @@ func showHelp(code int) {
 func init() {
 	flag.BoolVar(&options.help, "h", false, "Show help")
 	flag.BoolVar(&options.version, "v", false, "Print the current version")
+	flag.BoolVar(&options.followSymlinks, "H", false, "Follow symlinks")
 	flag.StringVar(&options.namespace, "n", "system", "Set namespace (either user or system)")
+	flag.Parse()
 }
