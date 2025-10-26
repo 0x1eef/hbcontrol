@@ -6,11 +6,6 @@ import (
 	"github.com/0x1eef/majortom/control"
 )
 
-const (
-	width   = 25
-	columns = 3
-)
-
 func PrintHeader() {
 	println("usage: hbcontrol [-hHnv] <command> [feature] <file>")
 	println("")
@@ -60,8 +55,8 @@ func PrintFeatures(ns string) {
 	}
 
 	for i, name := range names {
-		printf("%-*s", width, name)
-		if (i+1)%columns == 0 || i == len(names)-1 {
+		printf("%-*s", 25, name)
+		if (i+1)%3 == 0 || i == len(names)-1 {
 			println("")
 		}
 	}
