@@ -3,8 +3,9 @@
 The control package provides Go bindings for the libhbsdcontrol
 library for the [HardenedBSD](https://git.hardenedbsd.org/hardenedbsd/hardenedbsd)
 operating system. The library provides an interface that can enable, disable,
-restore and query feature states for a given file.
-
+restore and query feature states for a given file. See
+[hbcontrol](https://git.hardenedbsd.org/0x1eef/hbcontrol)
+as an example of a command line application that uses this library.
 
 ## Examples
 
