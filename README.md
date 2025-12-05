@@ -30,7 +30,6 @@ func main() {
 		panic(err)
 	}
 	defer ctx.Free()
-
 	features, err := ctx.FeatureNames()
 	if err != nil {
 		panic(err)
@@ -62,7 +61,6 @@ func main() {
 		panic(err)
 	}
 	defer ctx.Free()
-
 	feature, target := "mprotect", "/usr/bin/mdo"
 	if err := ctx.Enable(feature, target); err != nil {
 		panic(err)
@@ -97,7 +95,6 @@ func main() {
 		panic(err)
 	}
 	defer ctx.Free()
-
 	feature, target := "mprotect", "/usr/bin/mdo"
 	status, err := ctx.Status(feature, target)
 	if err != nil {
