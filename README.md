@@ -11,8 +11,8 @@ as an example of a command line application that uses this library.
 
 #### Features
 
-The following example demonstrates how to create an instance of
-`control.Context` and then how to query all feature names:
+The following example queries feature names available in the "system"
+namespace:
 
 ```go
 package main
@@ -42,7 +42,7 @@ func main() {
 
 #### Settings
 
-The next example shows how to enable, disable, and restore the system default
+The following example enables, disables, and restores the system default
 settings for a given file and feature:
 
 ```go
