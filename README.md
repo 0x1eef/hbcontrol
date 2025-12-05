@@ -1,25 +1,10 @@
 ## About
 
-The majortom module provides Go bindings for the libhbsdcontrol
+The control package provides Go bindings for the libhbsdcontrol
 library for the [HardenedBSD](https://git.hardenedbsd.org/hardenedbsd/hardenedbsd)
 operating system. The library provides an interface that can enable, disable,
 restore and query feature states for a given file.
 
-## Context
-
-#### Background
-
-The control package can enable or disable security features
-that are managed by the [HardenedBSD](https://hardenedbsd.org)
-kernel on a per-file basis. The package is not pure Go and
-also requires C code to be compiled. The dependency on C largely
-exists because HardenedBSD does not implement its own system calls
-since they could conflict with FreeBSD.
-
-Since HardenedBSD does not provide system calls that can enable or
-disable feature state that leaves the primary interface as the
-C libraries that HardenedBSD does provide. In this case, that interface is
-[libhbsdcontrol](https://git.hardenedbsd.org/hardenedbsd/hardenebsd).
 
 ## Examples
 
@@ -34,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/0x1eef/majortom/control"
+	"github.com/0x1eef/control"
 )
 
 func main() {
@@ -66,7 +51,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/0x1eef/majortom/control"
+	"github.com/0x1eef/control"
 )
 
 func main() {
@@ -101,7 +86,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/0x1eef/majortom/control"
+	"github.com/0x1eef/control"
 )
 
 func main() {
@@ -136,7 +121,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/0x1eef/majortom/control"
+	"github.com/0x1eef/control"
 )
 
 func worker() {
@@ -159,13 +144,13 @@ func main() {
 
 The install process is more or less straight forward
 
-    go get github.com/0x1eef/majortom
+    go get github.com/0x1eef/control
 
 ## Sources
 
-* [github.com/@0x1eef](https://github.com/0x1eef/majortom#readme)
-* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/majortom#about)
-* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/majortom#about)
+* [github.com/@0x1eef](https://github.com/0x1eef/control#readme)
+* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/control#about)
+* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/control#about)
 
 ## License
 

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/0x1eef/majortom/control"
+	"github.com/0x1eef/control"
 	"os"
 )
 

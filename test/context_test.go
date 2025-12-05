@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/0x1eef/majortom/control"
+	"github.com/0x1eef/control"
 )
 
 func TestDefaultNamespace(t *testing.T) {
