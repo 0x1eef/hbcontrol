@@ -140,8 +140,6 @@ func main() {
 
 ## Install
 
-The install process is more or less straight forward
-
     go get git.hardenedbsd.org/0x1eef/control
 
 ## Sources
