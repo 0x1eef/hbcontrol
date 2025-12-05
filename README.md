@@ -5,7 +5,7 @@ library for the [HardenedBSD](https://git.hardenedbsd.org/hardenedbsd/hardenedbs
 operating system. The library provides an interface that can enable, disable,
 restore and query feature states for a given file. This repository also
 includes a commmand line utility by the name of
-[hbcontrol](https://git.hardenedbsd.org/0x1eef/hbcontrol),
+[hbcontrol](https://git.hardenedbsd.org/0x1eef/hbcontrol)
 that provides an alternative implementation of hbsdcontrol(8).
 
 ## Examples
