@@ -51,7 +51,7 @@ package main
 import (
 	"fmt"
 
-	"git.hardenedbsd.org/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/hbcontrol"
 )
 
 func main() {
@@ -82,7 +82,7 @@ package main
 import (
 	"fmt"
 
-	"git.hardenedbsd.org/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/hbcontrol"
 )
 
 func main() {
@@ -116,7 +116,7 @@ package main
 import (
 	"fmt"
 
-	"git.hardenedbsd.org/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/hbcontrol"
 )
 
 func main() {
@@ -150,7 +150,7 @@ package main
 import (
 	"fmt"
 
-	"git.hardenedbsd.org/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/hbcontrol"
 )
 
 func worker() {
@@ -171,13 +171,13 @@ func main() {
 
 ## Install
 
-    go get git.hardenedbsd.org/0x1eef/control
+    go get git.hardenedbsd.org/0x1eef/hbcontrol
 
 ## Sources
 
-* [github.com/@0x1eef](https://git.hardenedbsd.org/0x1eef/control#readme)
-* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/control#about)
-* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/control#about)
+* [github.com/@0x1eef](https://git.hardenedbsd.org/0x1eef/hbcontrol#readme)
+* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/hbcontrol#about)
+* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/hbcontrol#about)
 
 ## License
 
