@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/control"
 )
 
 func TestDefaultNamespace(t *testing.T) {

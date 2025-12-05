@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/0x1eef/control"
 	"os"
+
+	"git.hardenedbsd.org/0x1eef/control"
 )
 
 func main() {

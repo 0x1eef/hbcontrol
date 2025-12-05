@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/control"
 )
 
 func main() {
@@ -51,7 +51,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/control"
 )
 
 func main() {
@@ -86,7 +86,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/control"
 )
 
 func main() {
@@ -121,7 +121,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/0x1eef/control"
+	"git.hardenedbsd.org/0x1eef/control"
 )
 
 func worker() {
@@ -144,11 +144,11 @@ func main() {
 
 The install process is more or less straight forward
 
-    go get github.com/0x1eef/control
+    go get git.hardenedbsd.org/0x1eef/control
 
 ## Sources
 
-* [github.com/@0x1eef](https://github.com/0x1eef/control#readme)
+* [github.com/@0x1eef](https://git.hardenedbsd.org/0x1eef/control#readme)
 * [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/control#about)
 * [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/control#about)
 
