@@ -1,13 +1,44 @@
 ## About
 
-The control package provides Go bindings for the libhbsdcontrol
+The hbcontrol package provides Go bindings for the libhbsdcontrol
 library for the [HardenedBSD](https://git.hardenedbsd.org/hardenedbsd/hardenedbsd)
 operating system. The library provides an interface that can enable, disable,
-restore and query feature states for a given file. See
-[hbcontrol](https://git.hardenedbsd.org/0x1eef/hbcontrol)
-as an example of a command line application that uses this library.
+restore and query feature states for a given file. This repository also
+includes a commmand line utility by the name of
+[hbcontrol](https://git.hardenedbsd.org/0x1eef/hbcontrol),
+that provides an alternative implementation of hbsdcontrol(8).
 
 ## Examples
+
+### CLI
+
+    usage: hbcontrol [-hHnv] <command> [feature] <file>
+
+    COMMANDS
+        enable           Enable a feature
+        disable          Disable a feature
+        sysdef           Restore the system default
+        [query|status]   Query feature states
+
+    OPTIONS
+        -h          Show help
+        -H          Follow symlinks
+        -n          Set the namespace (either 'user' or 'system')
+        -v          Print current version
+
+    EXAMPLES
+        hbcontrol enable mprotect /bin/ls
+        hbcontrol disable pageexec /bin/ls
+        hbcontrol sysdef segvguard /bin/ls
+        hbcontrol query /bin/ls
+        hbcontrol status /bin/ls
+
+    FEATURES
+    shlibrandom              segvguard                prohibit_ptrace_capsicum
+    pageexec                 mprotect                 insecure_kmod
+    harden_shm               disallow_map32bit        aslr
+
+### Package
 
 #### Features
 
@@ -24,8 +55,8 @@ import (
 )
 
 func main() {
-	ns := control.Namespace("system")
-	ctx, err := control.NewContext(ns)
+	ns := hbcontrol.Namespace("system")
+	ctx, err := hbcontrol.NewContext(ns)
 	if err != nil {
 		panic(err)
 	}
@@ -55,8 +86,8 @@ import (
 )
 
 func main() {
-	ns := control.Namespace("system")
-	ctx, err := control.NewContext(ns)
+	ns := hbcontrol.Namespace("system")
+	ctx, err := hbcontrol.NewContext(ns)
 	if err != nil {
 		panic(err)
 	}
@@ -89,8 +120,8 @@ import (
 )
 
 func main() {
-	ns := control.Namespace("system")
-	ctx, err := control.NewContext(ns)
+	ns := hbcontrol.Namespace("system")
+	ctx, err := hbcontrol.NewContext(ns)
 	if err != nil {
 		panic(err)
 	}
@@ -106,7 +137,7 @@ func main() {
 
 #### Concurrency
 
-The control package expects that each instance of `control.Context`
+The control package expects that each instance of `hbcontrol.Context`
 is not shared across goroutines, otherwise the behavior is undefined
 and it could lead to program crashes. In other words, create one context
 per goroutine. The following example spawns three goroutines that
@@ -123,8 +154,8 @@ import (
 )
 
 func worker() {
-	ns := control.Namespace("system")
-	ctx, err := control.NewContext(ns)
+	ns := hbcontrol.Namespace("system")
+	ctx, err := hbcontrol.NewContext(ns)
 	if err != nil {
 		panic(err)
 	}

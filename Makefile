@@ -1,3 +1,8 @@
+PREFIX := /usr/local
+MANDIR := $(PREFIX)/share/man/man8
+BINDIR := $(PREFIX)/bin
+BIN := hbcontrol
+
 all: test
 
 fmt:
@@ -5,6 +10,22 @@ fmt:
 		clang-format --style="{BasedOnStyle: mozilla, IndentWidth: 4}" -i $$c; \
 	done; \
 	go fmt ./...
+
+build:
+	go build -o bin/hbcontrol ./cmd/$(BIN)
+
+release:
+	go build -buildvcs=false -ldflags="-s -w" -o bin/$(BIN) ./cmd/$(BIN)
+
+install: release
+	install -d $(BINDIR)
+	install -m 755 bin/$(BIN) $(BINDIR)/$(BIN)
+	install -d $(MANDIR)
+	install -m 644 share/man/man8/$(BIN).8 $(MANDIR)/$(BIN).8
+
+uninstall:
+	rm -f $(BINDIR)/$(BIN)
+	rm -f $(MANDIR)/$(BIN).8
 
 test:
 	cd test/ && go test

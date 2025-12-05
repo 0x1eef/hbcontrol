@@ -1,4 +1,4 @@
-package control
+package hbcontrol
 
 /*
 	#cgo LDFLAGS: -lhbsdcontrol
