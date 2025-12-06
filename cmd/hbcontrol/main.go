@@ -4,11 +4,8 @@ import (
 	"flag"
 	"os"
 
+	"git.hardenedbsd.org/0x1eef/hbcontrol"
 	"git.hardenedbsd.org/0x1eef/hbcontrol/internal/help"
-)
-
-const (
-	Version = "1.1.2"
 )
 
 type flags struct {
@@ -26,7 +23,7 @@ func main() {
 	if options.help {
 		showHelp(0)
 	} else if options.version {
-		printf("v%s\n", Version)
+		printf("v%s\n", hbcontrol.Version)
 	} else if len(args) == 0 {
 		showHelp(0)
 	} else if len(args) == 2 {
