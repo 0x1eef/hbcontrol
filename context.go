@@ -2,7 +2,7 @@ package hbcontrol
 
 /*
 	#cgo LDFLAGS: -lhbsdcontrol
-	#include "control.h"
+	#include "hbcontrol.h"
 */
 import "C"
 
