@@ -137,7 +137,7 @@ func main() {
 
 #### Concurrency
 
-The control package expects that each instance of `hbcontrol.Context`
+The hbcontrol package expects that each instance of `hbcontrol.Context`
 is not shared across goroutines, otherwise the behavior is undefined
 and it could lead to program crashes. In other words, create one context
 per goroutine. The following example spawns three goroutines that
