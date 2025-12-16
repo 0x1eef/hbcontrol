@@ -1,7 +1,7 @@
 PREFIX := /usr/local
 MANDIR := $(PREFIX)/share/man/man8
 BINDIR := $(PREFIX)/bin
-BIN := hbcontrol
+BIN := ctrl
 
 all: test
 
@@ -12,7 +12,7 @@ fmt:
 	go fmt ./...
 
 build:
-	go build -o bin/hbcontrol ./cmd/$(BIN)
+	go build -o bin/ctrl ./cmd/$(BIN)
 
 release:
 	go build -buildvcs=false -ldflags="-s -w" -o bin/$(BIN) ./cmd/$(BIN)

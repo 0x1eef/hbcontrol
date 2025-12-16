@@ -1,4 +1,4 @@
-name: hbcontrol
+name: ctrl
 on:
   push:
     branches: [ main ]

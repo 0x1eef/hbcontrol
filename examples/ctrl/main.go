@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"git.hardenedbsd.org/0x1eef/hbcontrol"
+	"git.hardenedbsd.org/0x1eef/ctrl"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 	defer file.Close()
 	defer os.Remove(file.Name())
 
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	if err != nil {
 		panic(err)
 	}

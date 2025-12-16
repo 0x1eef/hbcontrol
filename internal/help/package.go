@@ -3,11 +3,11 @@ package help
 import (
 	"os"
 
-	"git.hardenedbsd.org/0x1eef/hbcontrol"
+	"git.hardenedbsd.org/0x1eef/ctrl"
 )
 
 func PrintHeader() {
-	println("usage: hbcontrol [-hHnv] <command> [feature] <file>")
+	println("usage: ctrl [-hHnv] <command> [feature] <file>")
 	println("")
 }
 
@@ -31,17 +31,17 @@ func PrintOptions() {
 
 func PrintExamples() {
 	println("EXAMPLES")
-	println("    hbcontrol enable mprotect /bin/ls")
-	println("    hbcontrol disable pageexec /bin/ls")
-	println("    hbcontrol sysdef segvguard /bin/ls")
-	println("    hbcontrol query /bin/ls")
-	println("    hbcontrol status /bin/ls")
+	println("    ctrl enable mprotect /bin/ls")
+	println("    ctrl disable pageexec /bin/ls")
+	println("    ctrl sysdef segvguard /bin/ls")
+	println("    ctrl query /bin/ls")
+	println("    ctrl status /bin/ls")
 	println("")
 }
 
 func PrintFeatures(ns string) {
 	println("FEATURES")
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace(ns))
+	ctx, err := ctrl.NewContext(ctrl.Namespace(ns))
 	if err != nil {
 		warnln("%s", err)
 		os.Exit(1)

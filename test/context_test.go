@@ -4,25 +4,25 @@ import (
 	"os"
 	"testing"
 
-	"git.hardenedbsd.org/0x1eef/hbcontrol"
+	"git.hardenedbsd.org/0x1eef/ctrl"
 )
 
 func TestDefaultNamespace(t *testing.T) {
-	ctx, err := hbcontrol.NewContext()
+	ctx, err := ctrl.NewContext()
 	AssertNil(t, err)
 	defer ctx.Free()
 	AssertEqual(t, "system", ctx.Namespace())
 }
 
 func TestUserNamespace(t *testing.T) {
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 	AssertEqual(t, "user", ctx.Namespace())
 }
 
 func TestFeatureNames(t *testing.T) {
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 	names, err := ctx.FeatureNames()
@@ -36,7 +36,7 @@ func TestStatus(t *testing.T) {
 	defer file.Close()
 	defer os.Remove(file.Name())
 
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 
@@ -51,7 +51,7 @@ func TestEnable(t *testing.T) {
 	defer file.Close()
 	defer os.Remove(file.Name())
 
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 
@@ -65,7 +65,7 @@ func TestDisable(t *testing.T) {
 	defer file.Close()
 	defer os.Remove(file.Name())
 
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 
@@ -79,7 +79,7 @@ func TestSysdef(t *testing.T) {
 	defer file.Close()
 	defer os.Remove(file.Name())
 
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 
@@ -93,7 +93,7 @@ func TestIsSysdef(t *testing.T) {
 	defer file.Close()
 	defer os.Remove(file.Name())
 
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 
@@ -108,7 +108,7 @@ func TestIsEnabled(t *testing.T) {
 	defer file.Close()
 	defer os.Remove(file.Name())
 
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 
@@ -123,7 +123,7 @@ func TestIsDisabled(t *testing.T) {
 	defer file.Close()
 	defer os.Remove(file.Name())
 
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	defer ctx.Free()
 
@@ -133,9 +133,9 @@ func TestIsDisabled(t *testing.T) {
 }
 
 func TestUseAfterFree(t *testing.T) {
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace("user"))
+	ctx, err := ctrl.NewContext(ctrl.Namespace("user"))
 	AssertNil(t, err)
 	ctx.Free()
 	_, err = ctx.FeatureNames()
-	AssertEqual(t, err, hbcontrol.ErrUseAfterFree)
+	AssertEqual(t, err, ctrl.ErrUseAfterFree)
 }
