@@ -1,4 +1,4 @@
-package hbcontrol
+package ctrl
 
 /*
 	#include <stdlib.h>

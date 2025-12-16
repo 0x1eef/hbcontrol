@@ -1,18 +1,18 @@
 ## About
 
-The hbcontrol package provides Go bindings for the libhbsdcontrol
+The ctrl package provides Go bindings for the libhbsdcontrol
 library for the [HardenedBSD](https://git.hardenedbsd.org/hardenedbsd/hardenedbsd)
 operating system. The library provides an interface that can enable, disable,
 restore and query feature states for a given file. This repository also
 includes a commmand line utility by the name of
-[hbcontrol](https://git.hardenedbsd.org/0x1eef/hbcontrol)
+[ctrl](https://git.hardenedbsd.org/0x1eef/ctrl)
 that provides an alternative implementation of hbsdcontrol(8).
 
 ## Examples
 
 ### CLI
 
-    usage: hbcontrol [-hHnv] <command> [feature] <file>
+    usage: ctrl [-hHnv] <command> [feature] <file>
 
     COMMANDS
         enable           Enable a feature
@@ -27,11 +27,11 @@ that provides an alternative implementation of hbsdcontrol(8).
         -v          Print current version
 
     EXAMPLES
-        hbcontrol enable mprotect /bin/ls
-        hbcontrol disable pageexec /bin/ls
-        hbcontrol sysdef segvguard /bin/ls
-        hbcontrol query /bin/ls
-        hbcontrol status /bin/ls
+        ctrl enable mprotect /bin/ls
+        ctrl disable pageexec /bin/ls
+        ctrl sysdef segvguard /bin/ls
+        ctrl query /bin/ls
+        ctrl status /bin/ls
 
     FEATURES
     shlibrandom              segvguard                prohibit_ptrace_capsicum
@@ -51,12 +51,12 @@ package main
 import (
 	"fmt"
 
-	"git.hardenedbsd.org/0x1eef/hbcontrol"
+	"git.hardenedbsd.org/0x1eef/ctrl"
 )
 
 func main() {
-	ns := hbcontrol.Namespace("system")
-	ctx, err := hbcontrol.NewContext(ns)
+	ns := ctrl.Namespace("system")
+	ctx, err := ctrl.NewContext(ns)
 	if err != nil {
 		panic(err)
 	}
@@ -82,12 +82,12 @@ package main
 import (
 	"fmt"
 
-	"git.hardenedbsd.org/0x1eef/hbcontrol"
+	"git.hardenedbsd.org/0x1eef/ctrl"
 )
 
 func main() {
-	ns := hbcontrol.Namespace("system")
-	ctx, err := hbcontrol.NewContext(ns)
+	ns := ctrl.Namespace("system")
+	ctx, err := ctrl.NewContext(ns)
 	if err != nil {
 		panic(err)
 	}
@@ -116,12 +116,12 @@ package main
 import (
 	"fmt"
 
-	"git.hardenedbsd.org/0x1eef/hbcontrol"
+	"git.hardenedbsd.org/0x1eef/ctrl"
 )
 
 func main() {
-	ns := hbcontrol.Namespace("system")
-	ctx, err := hbcontrol.NewContext(ns)
+	ns := ctrl.Namespace("system")
+	ctx, err := ctrl.NewContext(ns)
 	if err != nil {
 		panic(err)
 	}
@@ -137,7 +137,7 @@ func main() {
 
 #### Concurrency
 
-The hbcontrol package expects that each instance of `hbcontrol.Context`
+The ctrl package expects that each instance of `ctrl.Context`
 is not shared across goroutines, otherwise the behavior is undefined
 and it could lead to program crashes. In other words, create one context
 per goroutine. The following example spawns three goroutines that
@@ -150,12 +150,12 @@ package main
 import (
 	"fmt"
 
-	"git.hardenedbsd.org/0x1eef/hbcontrol"
+	"git.hardenedbsd.org/0x1eef/ctrl"
 )
 
 func worker() {
-	ns := hbcontrol.Namespace("system")
-	ctx, err := hbcontrol.NewContext(ns)
+	ns := ctrl.Namespace("system")
+	ctx, err := ctrl.NewContext(ns)
 	if err != nil {
 		panic(err)
 	}
@@ -171,13 +171,13 @@ func main() {
 
 ## Install
 
-    go get git.hardenedbsd.org/0x1eef/hbcontrol
+    go get git.hardenedbsd.org/0x1eef/ctrl
 
 ## Sources
 
-* [github.com/@0x1eef](https://git.hardenedbsd.org/0x1eef/hbcontrol#readme)
-* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/hbcontrol#about)
-* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/hbcontrol#about)
+* [github.com/@0x1eef](https://git.hardenedbsd.org/0x1eef/ctrl#readme)
+* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/ctrl#about)
+* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/ctrl#about)
 
 ## License
 

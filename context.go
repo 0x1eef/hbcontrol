@@ -1,8 +1,8 @@
-package hbcontrol
+package ctrl
 
 /*
 	#cgo LDFLAGS: -lhbsdcontrol
-	#include "hbcontrol.h"
+	#include "ctrl.h"
 */
 import "C"
 

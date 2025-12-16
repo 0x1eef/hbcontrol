@@ -3,7 +3,7 @@ package main
 import (
 	"errors"
 
-	"git.hardenedbsd.org/0x1eef/hbcontrol"
+	"git.hardenedbsd.org/0x1eef/ctrl"
 )
 
 var (
@@ -11,7 +11,7 @@ var (
 )
 
 func enable(ns, feature, path string) {
-	if ctx, err := hbcontrol.NewContext(hbcontrol.Namespace(ns)); err != nil {
+	if ctx, err := ctrl.NewContext(ctrl.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
@@ -26,7 +26,7 @@ func enable(ns, feature, path string) {
 }
 
 func disable(ns, feature, path string) {
-	if ctx, err := hbcontrol.NewContext(hbcontrol.Namespace(ns)); err != nil {
+	if ctx, err := ctrl.NewContext(ctrl.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
@@ -41,7 +41,7 @@ func disable(ns, feature, path string) {
 }
 
 func sysdef(ns, feature, path string) {
-	if ctx, err := hbcontrol.NewContext(hbcontrol.Namespace(ns)); err != nil {
+	if ctx, err := ctrl.NewContext(ctrl.Namespace(ns)); err != nil {
 		fatalln("%s", err)
 	} else {
 		defer ctx.Free()
@@ -56,7 +56,7 @@ func sysdef(ns, feature, path string) {
 }
 
 func query(ns, path string) {
-	ctx, err := hbcontrol.NewContext(hbcontrol.Namespace(ns))
+	ctx, err := ctrl.NewContext(ctrl.Namespace(ns))
 	if err != nil {
 		fatalln("%s", err)
 	} else if !isRegularFile(path) {
