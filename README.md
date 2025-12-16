@@ -1,12 +1,9 @@
 ## About
 
-The ctrl package provides Go bindings for the libhbsdcontrol
-library for the [HardenedBSD](https://git.hardenedbsd.org/hardenedbsd/hardenedbsd)
-operating system. The library provides an interface that can enable, disable,
-restore and query feature states for a given file. This repository also
-includes a commmand line utility by the name of
-[ctrl](https://git.hardenedbsd.org/0x1eef/ctrl)
-that provides an alternative implementation of hbsdcontrol(8).
+ctrl provides an alternative to the official hbsdcontrol(8) utility
+alongside Go bindings for libhbsdcontrol. See
+[hardenedbsd.org](https://www.hardenedbsd.org)
+for more information about hardenedBSD.
 
 ## Examples
 
