@@ -47,13 +47,11 @@ func PrintFeatures(ns string) {
 		os.Exit(1)
 	}
 	defer ctx.Free()
-
 	names, err := ctx.FeatureNames()
 	if err != nil {
 		warnln("There was an unexpected error")
 		os.Exit(1)
 	}
-
 	for i, name := range names {
 		printf("%-*s", 25, name)
 		if (i+1)%3 == 0 || i == len(names)-1 {
